@@ -1,10 +1,10 @@
-#include <iostream>
-#include "SM2.h"
-#include <utility>
+﻿#include <iostream>
+#include "EC.h"
 
 int main() {
-	SM2 sm2(2, 2, 2, 2, 2, 2, 2);
-	std::pair <int, int> key = sm2.generateKey();
-	std::cout << key.first << " " << key.second;
-	return 0;
+    EC ec(1, 2, 3, 17); 
+    EC::CommonParameters params = ec.getCommonParameters(); 
+    std::cout << params; 
+
+    return 0;
 }

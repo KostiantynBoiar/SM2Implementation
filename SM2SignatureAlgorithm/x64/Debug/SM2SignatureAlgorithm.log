@@ -1,3 +1,6 @@
-﻿  SM2.cpp
-main.obj : error LNK2019: unresolved external symbol "public: struct std::pair<__int64,__int64> __cdecl SM2::generateKey(void)" (?generateKey@SM2@@QEAA?AU?$pair@_J_J@std@@XZ) referenced in function main
-C:\Users\Kostiantyn\source\repos\SM2SignatureAlgorithm\x64\Debug\SM2SignatureAlgorithm.exe : fatal error LNK1120: 1 unresolved externals
+﻿  EC.cpp
+C:\Users\Kostiantyn\source\repos\SM2SignatureAlgorithm\SM2SignatureAlgorithm\EC.cpp(38,63): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\Kostiantyn\source\repos\SM2SignatureAlgorithm\SM2SignatureAlgorithm\EC.cpp(41,40): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+  main.cpp
+  Generating Code...
+  SM2SignatureAlgorithm.vcxproj -> C:\Users\Kostiantyn\source\repos\SM2SignatureAlgorithm\x64\Debug\SM2SignatureAlgorithm.exe
