@@ -3,19 +3,22 @@
 #include <iostream>
 #include <cmath>
 
+struct GF_p {
+    int x, y;
+    // Define the equality operator
+    bool operator==(const GF_p& other) const {
+        return x == other.x && y == other.y;
+    }
+};
+
+struct ECParams {
+    int x, a, b, p;
+};
 class EC
 {
+
 private:
-    struct GF_p {
-        int x, y;
-        // Define the equality operator
-        bool operator==(const GF_p& other) const {
-            return x == other.x && y == other.y;
-        }
-    };
-    struct ECParams {
-        int x, a, b, p;
-    };
+
     ECParams ecParams;
     GF_p gfP;
     GF_p findBasePoint(ECParams params) {

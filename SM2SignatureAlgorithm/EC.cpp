@@ -10,7 +10,7 @@ EC::CommonParameters EC::getCommonParameters()
     return params;
 }
 
-EC::GF_p EC::scalarMultiplication(const GF_p& point, int k)
+GF_p EC::scalarMultiplication(const GF_p& point, int k)
 {
     GF_p result;
     result.x = point.x;
@@ -23,7 +23,7 @@ EC::GF_p EC::scalarMultiplication(const GF_p& point, int k)
     return result;
 }
 
-EC::GF_p EC::ECAddition(const GF_p& point1, const GF_p& point2)
+GF_p EC::ECAddition(const GF_p& point1, const GF_p& point2)
 {
     GF_p result;
 
