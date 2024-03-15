@@ -8,6 +8,10 @@ class EC
 private:
     struct GF_p {
         int x, y;
+        // Define the equality operator
+        bool operator==(const GF_p& other) const {
+            return x == other.x && y == other.y;
+        }
     };
     struct ECParams {
 		int x, a, b, p;
@@ -36,16 +40,18 @@ public:
 	function ECMul()
 	constructor EC
 	*/
-    EC(const ECParams& ecParams) {
+    EC(const ECParams& ecParams){
         this->ecParams = ecParams;
     }
+
     struct CommonParameters {
         ECParams curveParams; // Eliptic Curve Parameters
         GF_p basePoint; // Base point
     };
 
     CommonParameters getCommonParameters();
-
+    GF_p scalarMultiplication(const GF_p& point, int k);
+    GF_p ECAddition(const GF_p& point1, const GF_p& point2);
     std::string generateKey(CommonParameters getCommonParameters);
 };
 
