@@ -1,0 +1,3 @@
+﻿  SM2.cpp
+main.obj : error LNK2019: unresolved external symbol "public: struct std::pair<__int64,__int64> __cdecl SM2::generateKey(void)" (?generateKey@SM2@@QEAA?AU?$pair@_J_J@std@@XZ) referenced in function main
+C:\Users\Kostiantyn\source\repos\SM2SignatureAlgorithm\x64\Debug\SM2SignatureAlgorithm.exe : fatal error LNK1120: 1 unresolved externals
