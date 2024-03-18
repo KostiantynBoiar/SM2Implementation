@@ -32,6 +32,12 @@ GF_p EC::ECAddition(const GF_p& point1, const GF_p& point2)
         result.y = 0;
         return result; // Операция неопределена - точки на разных касательных
     }
+    if (point1.x == 0 && point2.y == 0) {
+        return point2;
+    }
+    if(point2.x == 0 && point2.y == 0){
+        return point1;
+    }
 
     int lambda;
     if (point1 == point2) { // Если точки равны, используем производную
@@ -45,6 +51,17 @@ GF_p EC::ECAddition(const GF_p& point1, const GF_p& point2)
     result.y = (lambda * (point1.x - result.x) - point1.y) % this->ecParams.p;
 
     return result;
+}
+
+int* EC::findSlopeOfTwoPoints(int x1, int y1, int x2, int y2)
+{
+
+   
+}
+
+void EC::negate()
+{
+    this->gfP.y = -(this->gfP.y);
 }
 
 

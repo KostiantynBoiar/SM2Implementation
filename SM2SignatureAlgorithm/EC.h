@@ -2,6 +2,7 @@
 #include <string>
 #include <iostream>
 #include <cmath>
+#include "Math.h"
 
 struct GF_p {
     int x, y;
@@ -11,8 +12,9 @@ struct GF_p {
     }
 };
 
+
 struct ECParams {
-    int x, a, b, p;
+    int x, a, b, p, M;
 };
 class EC
 {
@@ -44,7 +46,8 @@ public:
     function ECMul()
     constructor EC
     */
-    EC(int x, int a, int b, int p) {
+    EC(int x, int a, int b, int p, int M) {
+        this->ecParams.M = M;
         this->ecParams.a = a;
         this->ecParams.b = b;
         this->ecParams.p = p;
@@ -71,5 +74,7 @@ public:
     CommonParameters getCommonParameters();
     GF_p scalarMultiplication(const GF_p& point, int k);
     GF_p ECAddition(const GF_p& point1, const GF_p& point2);
+    int* findSlopeOfTwoPoints(int x1, int y1, int x2, int y2);
+    void negate();
     std::string generateKey(CommonParameters getCommonParameters);
 };
