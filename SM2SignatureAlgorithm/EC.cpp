@@ -52,13 +52,13 @@ GF_p EC::ECAddition(const GF_p& point1, const GF_p& point2)
 
     return result;
 }
-
+/*
 int* EC::findSlopeOfTwoPoints(int x1, int y1, int x2, int y2)
 {
 
    
 }
-
+*/
 void EC::negate()
 {
     this->gfP.y = -(this->gfP.y);
