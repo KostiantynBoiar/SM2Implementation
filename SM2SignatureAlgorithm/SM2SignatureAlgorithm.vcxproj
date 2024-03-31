@@ -104,13 +104,14 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\Kostiantyn\source\repos\SM2SignatureAlgorithm\SM2SignatureAlgorithm\openssl-1.1.0f-vs2017\openssl-1.1.0f-vs2017\include64</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Kostiantyn\source\repos\SM2SignatureAlgorithm\openssl\openssl-3.2.1\ssl\include</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4996</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\Kostiantyn\source\repos\SM2SignatureAlgorithm\SM2SignatureAlgorithm\openssl-1.1.0f-vs2017\openssl-1.1.0f-vs2017\lib64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>ws2_32.lib;libsslMT.lib;Crypt32.lib;libcryptoMT.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\Kostiantyn\source\repos\SM2SignatureAlgorithm\openssl\openssl-3.2.1\ssl\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>C:\Users\Kostiantyn\source\repos\SM2SignatureAlgorithm\openssl\openssl-3.2.1\ssl\lib\libcrypto.lib;C:\Users\Kostiantyn\source\repos\SM2SignatureAlgorithm\openssl\openssl-3.2.1\ssl\lib\libssl.lib;Ws2_32.lib;Crypt32.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

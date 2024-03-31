@@ -1,9 +1,2 @@
-﻿  EC.cpp
-C:\Users\Kostiantyn\source\repos\SM2SignatureAlgorithm\SM2SignatureAlgorithm\EC.cpp(44,63): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-C:\Users\Kostiantyn\source\repos\SM2SignatureAlgorithm\SM2SignatureAlgorithm\EC.cpp(47,40): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-  main.cpp
-  Math.cpp
-  SM2.cpp
-  Generating Code...
-C:\Users\Kostiantyn\source\repos\SM2SignatureAlgorithm\SM2SignatureAlgorithm\Math.cpp(17): warning C4715: 'Math::inverse': not all control paths return a value
+﻿  SM2.cpp
   SM2SignatureAlgorithm.vcxproj -> C:\Users\Kostiantyn\source\repos\SM2SignatureAlgorithm\x64\Debug\SM2SignatureAlgorithm.exe

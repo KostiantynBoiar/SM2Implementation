@@ -1,22 +1,38 @@
 ﻿#include <iostream>
-#include "EC.h"
-#include <openssl/sha.h>
-#include <sstream>
-#include <iomanip>
+#include "SM2.h"
 
-std::string sha256(const std::string str) {
-    unsigned char hash[SHA256_DIGEST_LENGTH];
-    SHA256_CTX sha256;
-    SHA256_Init(&sha256);
-    SHA256_Update(&sha256, str.c_str(), str.size());
-    SHA256_Final(hash, &sha256);
-    std::stringstream ss;
-    for (int i = 0; i < SHA256_DIGEST_LENGTH; i++) {
-        ss << std::hex << std::setw(2) << std::setfill('0') << (int)hash[i];
-    }
-    return ss.str();
-}
 int main() {
-    std::cout << sha256("My string");
+    // Создаем объект SM2
+    SM2 sm2;
+
+    // Генерируем ключевую пару
+    if (!sm2.generateKeyPair()) {
+        std::cerr << "Failed to generate key pair." << std::endl;
+        return 1;
+    }
+
+    // Пример сообщения для подписи и верификации
+    const unsigned char message[] = "Hello, SM2!";
+    size_t messageLen = strlen((const char*)message);
+
+    // Выделяем память под подпись (пример, обычно подпись имеет фиксированный размер)
+    unsigned char signature[EVP_MAX_MD_SIZE];
+    size_t signatureLen;
+
+    // Подписываем сообщение
+    if (!sm2.sign(message, messageLen, signature, &signatureLen)) {
+        std::cerr << "Failed to sign message." << std::endl;
+        return 1;
+    }
+
+    std::cout << "Message signed successfully." << std::endl;
+
+    // Выводим подпись в консоль
+    std::cout << "Signature: ";
+    for (size_t i = 0; i < signatureLen; ++i) {
+        printf("%02x", signature[i]);
+    }
+    std::cout << std::endl;
+
     return 0;
 }
