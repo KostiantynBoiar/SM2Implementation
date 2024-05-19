@@ -1,2 +1,3 @@
-﻿  SM2.cpp
+﻿cl : command line  warning D9014: invalid value '1083' for '/wd'; assuming '5999'
+  main.cpp
   SM2SignatureAlgorithm.vcxproj -> C:\Users\Kostiantyn\source\repos\SM2SignatureAlgorithm\x64\Debug\SM2SignatureAlgorithm.exe

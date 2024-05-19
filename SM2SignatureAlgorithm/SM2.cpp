@@ -70,7 +70,7 @@ bool SM2::sign(const unsigned char* message, size_t messageLen, unsigned char* s
         return false;
     }
 
-    const EVP_MD* md = EVP_sm3(); // Создаем объект EVP_MD для хэш-функции SM3
+    const EVP_MD* md = EVP_sm3();
 
     if (EVP_DigestSignInit(ctx, NULL, md, NULL, pkey_) != 1) {
         EVP_MD_CTX_free(ctx);
@@ -82,24 +82,23 @@ bool SM2::sign(const unsigned char* message, size_t messageLen, unsigned char* s
         return false;
     }
 
-    size_t sigLen = *signatureLen; // Сохраняем значение, чтобы не изменять переданное значение
-
-    if (EVP_DigestSignFinal(ctx, NULL, &sigLen) != 1) { // Вызываем с NULL, чтобы получить длину подписи
+    size_t sigLen = *signatureLen; 
+    if (EVP_DigestSignFinal(ctx, NULL, &sigLen) != 1) { 
         EVP_MD_CTX_free(ctx);
         return false;
     }
 
-    if (sigLen > *signatureLen) { // Проверяем, достаточно ли места в буфере подписи
+    if (sigLen > *signatureLen) { 
         EVP_MD_CTX_free(ctx);
         return false;
     }
 
-    if (EVP_DigestSignFinal(ctx, signature, &sigLen) != 1) { // Вызываем с правильной длиной буфера подписи
+    if (EVP_DigestSignFinal(ctx, signature, &sigLen) != 1) { 
         EVP_MD_CTX_free(ctx);
         return false;
     }
 
-    *signatureLen = sigLen; // Обновляем переданное значение длины подписи
+    *signatureLen = sigLen; 
     EVP_MD_CTX_free(ctx);
     return true;
 }
@@ -114,7 +113,7 @@ bool SM2::verify(const unsigned char* message, size_t messageLen, const unsigned
         return false;
     }
 
-    const EVP_MD* md = EVP_sm3(); // Создаем объект EVP_MD для хэш-функции SM3
+    const EVP_MD* md = EVP_sm3(); 
 
     if (EVP_DigestVerifyInit(ctx, NULL, md, NULL, pkey_) != 1) {
         EVP_MD_CTX_free(ctx);
